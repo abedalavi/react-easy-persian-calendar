@@ -1,0 +1,46 @@
+{
+  "name": "react_simple_persain_calendar",
+  "version": "1.0.0",
+  "description": "A simple react persian calendar component",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abedalavi/react_simple_persain_calendar.git"
+  },
+  "keywords": [
+    "persian calendar",
+    "react component",
+    "react persian calendar",
+    "simple persian calendar"
+  ],
+  "author": {
+    "name": "Abed Alavi",
+    "email": "alavi.khorasani@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abedalavi/react_simple_persain_calendar/issues"
+  },
+  "homepage": "https://github.com/abedalavi/react_simple_persain_calendar#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "webpack": "^4.43.0"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
