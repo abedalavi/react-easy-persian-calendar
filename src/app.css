@@ -1,0 +1,29 @@
+.divStyle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    display: none;
+    z-index: 100;
+    border-radius: 5px;
+    box-shadow: black 0 0 5px 1px;
+    padding: 10px;
+
+}
+
+.topBottonsDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topButton {
+    padding: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.topButton:hover {
+    background-color: #ececec;
+}

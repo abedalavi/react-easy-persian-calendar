@@ -1,17 +1,26 @@
 import React, { Component } from "react";
+import "./app.css";
 class MainDiv extends Component {
   render() {
-    const divStyle = {
-      position: "absolute",
-      width: "200px",
-      height: "200px",
-      backgroundColor: "#e7f1f9",
-      display: this.props.IsVisible === true ? 'block' : 'none',
-      zIndex: '100',
-      borderRadius: "5px",
-      boxShadow: "0px 0px 3px 0px black"
-    };
-    return <div style={divStyle}></div>;
+    const { currentTime } = this.props;
+    // console.log(this.props.currentTime);
+    return (
+      <div
+        className="divStyle"
+        style={{ display: this.props.isVisible === true ? "block" : "none" }}
+      >
+        <div className="topBottonsDiv">
+          <button className="topButton">&lt;</button>
+          <button className="topButton">
+            {currentTime.toLocaleString("fa-IR", { year: "numeric" })}
+          </button>
+          <button className="topButton">
+            {currentTime.toLocaleString("fa-IR", { month: "long" })}{" "}
+          </button>
+          <button className="topButton">&gt;</button>
+        </div>
+      </div>
+    );
   }
 }
 
