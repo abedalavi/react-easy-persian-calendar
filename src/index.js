@@ -2,14 +2,15 @@ import React, { Fragment } from "react";
 import MainDiv from "./MainDiv";
 class PersianCalendar extends React.Component {
   state = {
-    isVisible: false,
-    currentTime: new Date(),
+    isVisible: this.props.isVisible,
+    currentTime: this.props.currentTime,
   };
   onTextBoxClick = () => {
-    const { isVisible } = this.state;
+    const {isVisible,currentTime} = this.state;
     this.setState({ isVisible: !isVisible, currentTime: new Date() });
   };
   render() {
+    console.log(this.state.isVisible);
     return (
       <Fragment>
         <div style={{ display: "inline-block" }}>
@@ -17,6 +18,7 @@ class PersianCalendar extends React.Component {
           <MainDiv
             isVisible={this.state.isVisible}
             currentTime={this.state.currentTime}
+            rtl={this.props.rtl}
           />
         </div>
       </Fragment>
@@ -24,4 +26,11 @@ class PersianCalendar extends React.Component {
     a;
   }
 }
+
+PersianCalendar.defaultProps = {
+  isVisible: false,
+  currentTime: new Date(),
+  rtl:true
+}
+
 export default PersianCalendar;
