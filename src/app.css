@@ -10,6 +10,30 @@
     padding: 10px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.monthStyle{
+    justify-content: space-between;
+    align-content: space-between;
+    height: 250px;
+}
+.monthStyle button{
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ececec;
+    margin: 3px;
+    width: 70px;
+    height: 55px;
+    display: inline-block;
+    cursor: pointer;
+}
+.monthStyle button:hover{
+    background-color: #cacaca;
+}
 .rtl {
     direction: rtl;
 }
@@ -18,17 +42,7 @@
     direction: ltr;
 }
 
-.topBottonsDiv {
-    display: flex;
-    justify-content: space-between;
-}
-
 .flexJustifyCenter {
-    display: flex;
-    justify-content: space-between;
-}
-
-.weekDiv {
     display: flex;
     justify-content: space-between;
 }
@@ -54,11 +68,6 @@
 
 .topButton:hover {
     background-color: #ececec;
-}
-
-.monthRow {
-    display: flex;
-    justify-content: space-between;
 }
 
 .monthRow button {

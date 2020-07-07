@@ -20,11 +20,13 @@ class PersianCalendar extends React.Component {
       monthVisible: !this.state.monthVisible,
     });
   };
-  handleMonthInMonthClick = () => {
+  handleMonthInMonthClick = (month) => {
     this.setState({
       mainVisible: !this.state.mainVisible,
       monthVisible: !this.state.monthVisible,
     });
+    let currentTime = new Date(this.state.currentTime.setMonth(month-1));
+    this.setState({currentTime});
   };
   render() {
     return (
