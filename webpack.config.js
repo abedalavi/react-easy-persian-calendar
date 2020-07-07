@@ -14,10 +14,13 @@ module.exports = {
         exclude: /(node_modules|bower_components|build)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
+          
         }
+      },
+      {
+        test: /\.css$/i,
+        exclude: /(node_modules|bower_components|build)/,
+        use: ['style-loader', 'css-loader'],
       }
     ]
   },
