@@ -1,6 +1,6 @@
 .divStyle {
     position: absolute;
-    width: 250px; 
+    width: 250px;
     height: 250px;
     background-color: white;
     display: none;
@@ -8,18 +8,26 @@
     border-radius: 5px;
     box-shadow: black 0 0 5px 1px;
     padding: 10px;
-    
 }
-.rtl{
+
+.rtl {
     direction: rtl;
 }
-.ltr{
+
+.ltr {
     direction: ltr;
 }
+
 .topBottonsDiv {
     display: flex;
     justify-content: space-between;
 }
+
+.flexJustifyCenter {
+    display: flex;
+    justify-content: space-between;
+}
+
 .weekDiv {
     display: flex;
     justify-content: space-between;
@@ -45,5 +53,22 @@
 }
 
 .topButton:hover {
+    background-color: #ececec;
+}
+
+.monthRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.monthRow button {
+    padding: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.monthRow button:hover {
     background-color: #ececec;
 }

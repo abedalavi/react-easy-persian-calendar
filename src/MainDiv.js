@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import "./app.css";
 class MainDiv extends Component {
   render() {
-    const { currentTime,rtl } = this.props;
-    const weekStyle = 'weekDiv ' + (rtl === true ? 'rtl' : 'ltr');
-    // console.log(this.props.currentTime);
+    const { currentTime, rtl, mainVisible } = this.props;
+    const weekStyle = "weekDiv " + (rtl === true ? "rtl" : "ltr");
     return (
       <div
         className="divStyle"
-        style={{ display: this.props.isVisible === true ? "block" : "none" }}
+        style={{ display: mainVisible === true ? "block" : "none" }}
       >
         <div className="topBottonsDiv">
           <button className="topButton">&lt;</button>
           <button className="topButton">
             {currentTime.toLocaleString("fa-IR", { year: "numeric" })}
           </button>
-          <button className="topButton">
-            {currentTime.toLocaleString("fa-IR", { month: "long" })}{" "}
+          <button
+            className="topButton"
+            onClick={() => this.props.handleMonthClick()}
+          >
+            {currentTime.toLocaleString("fa-IR", { month: "long" })}
           </button>
           <button className="topButton">&gt;</button>
         </div>
@@ -35,9 +36,9 @@ class MainDiv extends Component {
 }
 
 MainDiv.defaultProps = {
-  isVisible: false,
+  mainVisible: false,
   currentTime: new Date(),
-  rtl:true
-}
+  rtl: true,
+};
 
 export default MainDiv;

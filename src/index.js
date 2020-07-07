@@ -1,24 +1,47 @@
 import React, { Fragment } from "react";
 import MainDiv from "./MainDiv";
+import MonthDiv from "./MonthDiv";
+import "./app.css";
 class PersianCalendar extends React.Component {
   state = {
-    isVisible: this.props.isVisible,
+    mainVisible: this.props.mainVisible,
     currentTime: this.props.currentTime,
+    monthVisible: this.props.monthVisible,
   };
   onTextBoxClick = () => {
-    const {isVisible,currentTime} = this.state;
-    this.setState({ isVisible: !isVisible, currentTime: new Date() });
+    const { mainVisible, currentTime } = this.state;
+    if (this.state.mainVisible === true || this.state.monthVisible === true)
+      return;
+    this.setState({ mainVisible: !mainVisible, currentTime: new Date() });
+  };
+  handleMonthClick = () => {
+    this.setState({
+      mainVisible: !this.state.mainVisible,
+      monthVisible: !this.state.monthVisible,
+    });
+  };
+  handleMonthInMonthClick = () => {
+    this.setState({
+      mainVisible: !this.state.mainVisible,
+      monthVisible: !this.state.monthVisible,
+    });
   };
   render() {
-    console.log(this.state.isVisible);
     return (
       <Fragment>
         <div style={{ display: "inline-block" }}>
           <input type="text" onClick={() => this.onTextBoxClick()}></input>
           <MainDiv
-            isVisible={this.state.isVisible}
+            mainVisible={this.state.mainVisible}
             currentTime={this.state.currentTime}
             rtl={this.props.rtl}
+            handleMonthClick={this.handleMonthClick}
+          />
+          <MonthDiv
+            monthVisible={this.state.monthVisible}
+            currentTime={this.state.currentTime}
+            rtl={this.props.rtl}
+            handleMonthInMonthClick={this.handleMonthInMonthClick}
           />
         </div>
       </Fragment>
@@ -28,9 +51,10 @@ class PersianCalendar extends React.Component {
 }
 
 PersianCalendar.defaultProps = {
-  isVisible: false,
+  mainVisible: false,
   currentTime: new Date(),
-  rtl:true
-}
+  monthVisible: false,
+  rtl: true,
+};
 
 export default PersianCalendar;
