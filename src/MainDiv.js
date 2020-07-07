@@ -2,13 +2,14 @@ import React, { Component } from "react";
 class MainDiv extends Component {
   render() {
     const { currentTime, rtl, mainVisible } = this.props;
-    const weekStyle = "weekDiv " + (rtl === true ? "rtl" : "ltr");
+    const weekStyle = "flexJustifyCenter " + (rtl === true ? "rtl" : "ltr");
+    console.log(currentTime);
     return (
       <div
         className="divStyle"
         style={{ display: mainVisible === true ? "block" : "none" }}
       >
-        <div className="topBottonsDiv">
+        <div className="flexJustifyCenter">
           <button className="topButton">&lt;</button>
           <button className="topButton">
             {currentTime.toLocaleString("fa-IR", { year: "numeric" })}

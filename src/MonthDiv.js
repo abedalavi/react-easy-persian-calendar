@@ -3,54 +3,72 @@ class MonthDiv extends Component {
   state = {};
   render() {
     const { currentTime, rtl, monthVisible } = this.props;
-    const monthStyle = "monthRow " + (rtl === true ? "rtl" : "ltr");
+    const monthStyle = "grid-container monthStyle " + (rtl === true ? "rtl" : "ltr");
     return (
       <div
         className="divStyle"
         style={{ display: monthVisible === true ? "block" : "none" }}
       >
-        <div className="flexJustifyCenter">
-          <div className={monthStyle}>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+        <div className={monthStyle}>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(1)}>
               فروردین
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(2)}>
               اردیبهشت
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(3)}>
               خرداد
             </button>
           </div>
-          <div className={monthStyle}>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(4)}>
               تیر
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(5)}>
               مرداد
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(6)}>
               شهریور
             </button>
           </div>
-          <div className={monthStyle}>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(7)}>
               مهر
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(8)}>
               آبان
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(9)}>
               آذر
             </button>
           </div>
-          <div className={monthStyle}>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(10)}>
               دی
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(11)}>
               بهمن
             </button>
-            <button onClick={() => this.props.handleMonthInMonthClick()}>
+          </div>
+          <div>
+            <button onClick={() => this.props.handleMonthInMonthClick(12)}>
               اسفند
             </button>
           </div>
