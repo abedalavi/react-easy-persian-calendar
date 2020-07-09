@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/abedalavi/react_simple_persain_calendar#readme",
   "dependencies": {
+    "jalaali-js": "^1.1.0",
     "react": "^16.13.1",
     "webpack": "^4.43.0"
   },
