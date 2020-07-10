@@ -2,18 +2,18 @@ import React, { Fragment } from "react";
 import MainDiv from "./MainDiv";
 import MonthDiv from "./MonthDiv";
 import jalaali from 'jalaali-js';
+import YearDiv from './YearDiv';
 import "./app.css";
 class PersianCalendar extends React.Component {
   state = {
     mainVisible: this.props.mainVisible,
     currentTime: this.props.currentTime,
     monthVisible: this.props.monthVisible,
-    currentPersianTime: ''
+    yearVisible: this.props.yearVisible,
+    currentPersianTime: jalaali.toJalaali(new Date())
   };
   onTextBoxClick = () => {
-    const { mainVisible, currentTime } = this.state;
-    if (this.state.mainVisible === true || this.state.monthVisible === true)
-      return;
+    const { mainVisible } = this.state;
     this.setState({ mainVisible: !mainVisible, currentTime: new Date() , currentPersianTime: jalaali.toJalaali(new Date())});
   };
   handleMonthClick = () => {
@@ -22,6 +22,9 @@ class PersianCalendar extends React.Component {
       monthVisible: !this.state.monthVisible,
     });
   };
+  handleYearInYearClick = (year) => {
+    console.log('handleYearInYearClick', year);
+  }
   handleMonthInMonthClick = (month) => {
     this.setState({
       mainVisible: !this.state.mainVisible,
@@ -31,10 +34,13 @@ class PersianCalendar extends React.Component {
     let newMonth = month;
     let day = this.state.currentPersianTime.jd;
     let currentTime = jalaali.toGregorian(year,newMonth,day);
-    console.log(currentTime);
     currentTime = new Date(currentTime.gy,currentTime.gm-1,currentTime.gd);
-    console.log(currentTime);
-    this.setState({currentTime});
+    const  currentPersianTime = {
+      jy: this.state.currentPersianTime.jy,
+      jm: month,
+      jd: this.state.currentPersianTime.jd
+    };
+    this.setState({currentTime,currentPersianTime});
   };
   render() {
     return (
@@ -55,6 +61,13 @@ class PersianCalendar extends React.Component {
             handleMonthInMonthClick={this.handleMonthInMonthClick}
             currentPersianTime={this.state.currentPersianTime}
           />
+          <YearDiv
+            yearVisible={this.state.yearVisible}
+            currentTime={this.state.currentTime}
+            rtl={this.props.rtl}
+            handleYearInYearClick={this.handleYearInYearClick}
+            currentPersianTime={this.state.currentPersianTime}
+          />
         </div>
       </Fragment>
     );
@@ -66,6 +79,7 @@ PersianCalendar.defaultProps = {
   mainVisible: false,
   currentTime: new Date(),
   monthVisible: false,
+  yearVisible: false,
   rtl: true,
 };
 

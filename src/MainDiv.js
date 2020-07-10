@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import {
+  returnMonthInPersian,
+  convertEnglishDigitToArabic,
+} from "./helperMethods";
 class MainDiv extends Component {
   render() {
-    const { currentTime, rtl, mainVisible } = this.props;
+    const { currentTime, rtl, mainVisible, currentPersianTime } = this.props;
     const weekStyle = "flexJustifyCenter " + (rtl === true ? "rtl" : "ltr");
-    console.log(currentTime);
     return (
       <div
         className="divStyle"
@@ -12,13 +15,13 @@ class MainDiv extends Component {
         <div className="flexJustifyCenter">
           <button className="topButton">&lt;</button>
           <button className="topButton">
-            {currentTime.toLocaleString("fa-IR", { year: "numeric" })}
+            {convertEnglishDigitToArabic(currentPersianTime.jy)}
           </button>
           <button
             className="topButton"
             onClick={() => this.props.handleMonthClick()}
           >
-            {currentTime.toLocaleString("fa-IR", { month: "long" })}
+            {returnMonthInPersian(currentPersianTime.jm)}
           </button>
           <button className="topButton">&gt;</button>
         </div>
