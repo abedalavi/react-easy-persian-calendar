@@ -22,13 +22,6 @@ class PersianCalendar extends React.Component {
     });
   };
 
-  handleMonthClick = () => {
-    this.setState({
-      mainVisible: !this.state.mainVisible,
-      monthVisible: !this.state.monthVisible,
-    });
-  };
-
   handleYearClick = () => {
     this.setState({
       mainVisible: !this.state.mainVisible,
@@ -37,7 +30,28 @@ class PersianCalendar extends React.Component {
   };
 
   handleYearInYearClick = (year) => {
-    console.log("handleYearInYearClick", year);
+    this.setState({
+      mainVisible: !this.state.mainVisible,
+      yearVisible: !this.state.yearVisible,
+    });
+    let newYear = year;
+    let month = this.state.currentPersianTime.jm;
+    let day = this.state.currentPersianTime.jd;
+    let currentTime = jalaali.toGregorian(newYear, month, day);
+    currentTime = new Date(currentTime.gy, currentTime.gm - 1, currentTime.gd);
+    const currentPersianTime = {
+      jy: year,
+      jm: this.state.currentPersianTime.jm,
+      jd: this.state.currentPersianTime.jd,
+    };
+    this.setState({ currentTime, currentPersianTime });
+  };
+
+  handleMonthClick = () => {
+    this.setState({
+      mainVisible: !this.state.mainVisible,
+      monthVisible: !this.state.monthVisible,
+    });
   };
 
   handleMonthInMonthClick = (month) => {
@@ -58,6 +72,41 @@ class PersianCalendar extends React.Component {
     this.setState({ currentTime, currentPersianTime });
   };
 
+  handlePrevClick = () => {
+    let currentPersianTime = {};
+    if (this.state.currentPersianTime.jm === 1) {
+      currentPersianTime = {
+        jy: this.state.currentPersianTime.jy - 1,
+        jm: 12,
+        jd: this.state.currentPersianTime.jd,
+      };
+    } else {
+      currentPersianTime = {
+        jy: this.state.currentPersianTime.jy,
+        jm: this.state.currentPersianTime.jm - 1,
+        jd: this.state.currentPersianTime.jd,
+      };
+    }
+    this.setState({ currentPersianTime });
+  };
+
+  handleNextClick = () => {
+    let currentPersianTime = {};
+    if (this.state.currentPersianTime.jm === 12) {
+      currentPersianTime = {
+        jy: this.state.currentPersianTime.jy + 1,
+        jm: 1,
+        jd: this.state.currentPersianTime.jd,
+      };
+    } else {
+      currentPersianTime = {
+        jy: this.state.currentPersianTime.jy,
+        jm: this.state.currentPersianTime.jm + 1,
+        jd: this.state.currentPersianTime.jd,
+      };
+    }
+    this.setState({ currentPersianTime });
+  };
   render() {
     return (
       <Fragment>
@@ -70,6 +119,8 @@ class PersianCalendar extends React.Component {
             handleMonthClick={this.handleMonthClick}
             handleYearClick={this.handleYearClick}
             currentPersianTime={this.state.currentPersianTime}
+            handlePrevClick={this.handlePrevClick}
+            handleNextClick={this.handleNextClick}
           />
           <MonthDiv
             monthVisible={this.state.monthVisible}

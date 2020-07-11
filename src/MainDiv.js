@@ -13,7 +13,12 @@ class MainDiv extends Component {
         style={{ display: mainVisible === true ? "block" : "none" }}
       >
         <div className="flexJustifyCenter">
-          <button className="topButton">&lt;</button>
+          <button
+            className="topButton"
+            onClick={() => this.props.handleNextClick()}
+          >
+            &lt;
+          </button>
           <button
             className="topButton"
             onClick={() => this.props.handleYearClick()}
@@ -26,7 +31,12 @@ class MainDiv extends Component {
           >
             {returnMonthInPersian(currentPersianTime.jm)}
           </button>
-          <button className="topButton">&gt;</button>
+          <button
+            className="topButton"
+            onClick={() => this.props.handlePrevClick()}
+          >
+            &gt;
+          </button>
         </div>
         <div className={weekStyle}>
           <span className="weekIcon">ش</span>

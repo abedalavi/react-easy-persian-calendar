@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from "react";
 import jalaali from "jalaali-js";
+import {
+  returnMonthInPersian,
+  convertEnglishDigitToArabic,
+} from "./helperMethods";
 class YearDiv extends Component {
   state = {};
   render() {
@@ -18,49 +22,116 @@ class YearDiv extends Component {
           <div className="flexJustifyCenter yearRow">
             {arrayOfYear.map((year) => {
               if (year < currentYearJalaali - 100 + 22) {
-                return <button>{year}</button>;
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
           <div className="flexJustifyCenter yearRow">
-          {arrayOfYear.map((year) => {
-              if (year >= currentYearJalaali - 100 + 22 &&  year < currentYearJalaali - 100 + 44) {
-                return <button>{year}</button>;
+            {arrayOfYear.map((year) => {
+              if (
+                year >= currentYearJalaali - 100 + 22 &&
+                year < currentYearJalaali - 100 + 44
+              ) {
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
           <div className="flexJustifyCenter yearRow">
-          {arrayOfYear.map((year) => {
-              if (year >= currentYearJalaali - 100 + 44 && year < currentYearJalaali - 100 + 66) {
-                return <button>{year}</button>;
+            {arrayOfYear.map((year) => {
+              if (
+                year >= currentYearJalaali - 100 + 44 &&
+                year < currentYearJalaali - 100 + 66
+              ) {
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
           <div className="flexJustifyCenter yearRow">
-          {arrayOfYear.map((year) => {
-              if (year >= currentYearJalaali - 100 + 66 && year < currentYearJalaali - 100 + 88) {
-                return <button>{year}</button>;
+            {arrayOfYear.map((year) => {
+              if (
+                year >= currentYearJalaali - 100 + 66 &&
+                year < currentYearJalaali - 100 + 88
+              ) {
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
           <div className="flexJustifyCenter yearRow">
-          {arrayOfYear.map((year) => {
-              if (year >= currentYearJalaali - 100 + 88 && year < currentYearJalaali - 100 + 110) {
-                return <button>{year}</button>;
+            {arrayOfYear.map((year) => {
+              if (
+                year >= currentYearJalaali - 100 + 88 &&
+                year < currentYearJalaali - 100 + 110
+              ) {
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
           <div className="flexJustifyCenter yearRow">
-          {arrayOfYear.map((year) => {
-              if (year >= currentYearJalaali - 100 + 110 && year < currentYearJalaali - 100 + 132) {
-                return <button>{year}</button>;
+            {arrayOfYear.map((year) => {
+              if (
+                year >= currentYearJalaali - 100 + 110 &&
+                year < currentYearJalaali - 100 + 132
+              ) {
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
           <div className="flexJustifyCenter yearRow">
-          {arrayOfYear.map((year) => {
-              if (year >= currentYearJalaali - 100 + 132 && year < currentYearJalaali - 100 + 154) {
-                return <button>{year}</button>;
+            {arrayOfYear.map((year) => {
+              if (
+                year >= currentYearJalaali - 100 + 132 &&
+                year < currentYearJalaali - 100 + 154
+              ) {
+                return (
+                  <button
+                    onClick={() => this.props.handleYearInYearClick(year)}
+                    key={year}
+                  >
+                    {convertEnglishDigitToArabic(year)}
+                  </button>
+                );
               }
             })}
           </div>
