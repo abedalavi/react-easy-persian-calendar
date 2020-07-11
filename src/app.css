@@ -42,6 +42,9 @@
     direction: ltr;
 }
 
+.overflowOverlay{
+    overflow: overlay;
+}
 .flexJustifyCenter {
     display: flex;
     justify-content: space-between;
@@ -79,5 +82,16 @@
 }
 
 .monthRow button:hover {
+    background-color: #ececec;
+}
+.yearRow button {
+    padding: 10px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.yearRow button:hover {
     background-color: #ececec;
 }

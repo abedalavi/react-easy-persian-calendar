@@ -14,7 +14,10 @@ class MainDiv extends Component {
       >
         <div className="flexJustifyCenter">
           <button className="topButton">&lt;</button>
-          <button className="topButton">
+          <button
+            className="topButton"
+            onClick={() => this.props.handleYearClick()}
+          >
             {convertEnglishDigitToArabic(currentPersianTime.jy)}
           </button>
           <button

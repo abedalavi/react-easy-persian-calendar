@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import MainDiv from "./MainDiv";
 import MonthDiv from "./MonthDiv";
-import jalaali from 'jalaali-js';
-import YearDiv from './YearDiv';
+import jalaali from "jalaali-js";
+import YearDiv from "./YearDiv";
 import "./app.css";
 class PersianCalendar extends React.Component {
   state = {
@@ -10,21 +10,36 @@ class PersianCalendar extends React.Component {
     currentTime: this.props.currentTime,
     monthVisible: this.props.monthVisible,
     yearVisible: this.props.yearVisible,
-    currentPersianTime: jalaali.toJalaali(new Date())
+    currentPersianTime: jalaali.toJalaali(new Date()),
   };
+
   onTextBoxClick = () => {
     const { mainVisible } = this.state;
-    this.setState({ mainVisible: !mainVisible, currentTime: new Date() , currentPersianTime: jalaali.toJalaali(new Date())});
+    this.setState({
+      mainVisible: !mainVisible,
+      currentTime: new Date(),
+      currentPersianTime: jalaali.toJalaali(new Date()),
+    });
   };
+
   handleMonthClick = () => {
     this.setState({
       mainVisible: !this.state.mainVisible,
       monthVisible: !this.state.monthVisible,
     });
   };
+
+  handleYearClick = () => {
+    this.setState({
+      mainVisible: !this.state.mainVisible,
+      yearVisible: !this.state.yearVisible,
+    });
+  };
+
   handleYearInYearClick = (year) => {
-    console.log('handleYearInYearClick', year);
-  }
+    console.log("handleYearInYearClick", year);
+  };
+
   handleMonthInMonthClick = (month) => {
     this.setState({
       mainVisible: !this.state.mainVisible,
@@ -33,15 +48,16 @@ class PersianCalendar extends React.Component {
     let year = this.state.currentPersianTime.jy;
     let newMonth = month;
     let day = this.state.currentPersianTime.jd;
-    let currentTime = jalaali.toGregorian(year,newMonth,day);
-    currentTime = new Date(currentTime.gy,currentTime.gm-1,currentTime.gd);
-    const  currentPersianTime = {
+    let currentTime = jalaali.toGregorian(year, newMonth, day);
+    currentTime = new Date(currentTime.gy, currentTime.gm - 1, currentTime.gd);
+    const currentPersianTime = {
       jy: this.state.currentPersianTime.jy,
       jm: month,
-      jd: this.state.currentPersianTime.jd
+      jd: this.state.currentPersianTime.jd,
     };
-    this.setState({currentTime,currentPersianTime});
+    this.setState({ currentTime, currentPersianTime });
   };
+
   render() {
     return (
       <Fragment>
@@ -52,8 +68,9 @@ class PersianCalendar extends React.Component {
             currentTime={this.state.currentTime}
             rtl={this.props.rtl}
             handleMonthClick={this.handleMonthClick}
+            handleYearClick={this.handleYearClick}
             currentPersianTime={this.state.currentPersianTime}
-            />
+          />
           <MonthDiv
             monthVisible={this.state.monthVisible}
             currentTime={this.state.currentTime}
