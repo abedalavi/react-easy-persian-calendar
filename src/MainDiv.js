@@ -47,6 +47,82 @@ class MainDiv extends Component {
           <span className="weekIcon">پ</span>
           <span className="weekIcon">ج</span>
         </div>
+        <div className={weekStyle}>
+          {this.props.monthDays.map((value, index) => {
+            if (index < 7) {
+              return (
+                <span
+                  key={index}
+                  className="dayIcon"
+                  onClick={() => this.props.handleDayClick(value)}
+                >
+                  {convertEnglishDigitToArabic(value)}
+                </span>
+              );
+            }
+          })}
+        </div>
+        <div className={weekStyle}>
+          {this.props.monthDays.map((value, index) => {
+            if (index >= 7 && index < 14) {
+              return (
+                <span
+                  key={index}
+                  className="dayIcon"
+                  onClick={() => this.props.handleDayClick(value)}
+                >
+                  {convertEnglishDigitToArabic(value)}
+                </span>
+              );
+            }
+          })}
+        </div>
+        <div className={weekStyle}>
+          {this.props.monthDays.map((value, index) => {
+            if (index >= 14 && index < 21) {
+              return (
+                <span
+                  key={index}
+                  className="dayIcon"
+                  onClick={() => this.props.handleDayClick(value)}
+                >
+                  {convertEnglishDigitToArabic(value)}
+                </span>
+              );
+            }
+          })}
+        </div>
+        <div className={weekStyle}>
+          {this.props.monthDays.map((value, index) => {
+            if (index >= 28 && index < 35) {
+              return (
+                <span
+                  key={index}
+                  className="dayIcon"
+                  onClick={() => this.props.handleDayClick(value)}
+                >
+                  {convertEnglishDigitToArabic(value)}
+                </span>
+              );
+            }
+          })}
+        </div>
+
+        <div className={weekStyle}>
+          {this.props.monthDays.map((value, index) => {
+            if (index >= 35 && index < 42) {
+              return (
+                <span
+                  key={index}
+                  className="dayIcon"
+                  onClick={() => this.props.handleDayClick(value)}
+                >
+                  {convertEnglishDigitToArabic(value)}
+                </span>
+              );
+            }
+          })}
+        </div>
       </div>
     );
   }
