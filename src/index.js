@@ -11,15 +11,59 @@ class PersianCalendar extends React.Component {
     monthVisible: this.props.monthVisible,
     yearVisible: this.props.yearVisible,
     currentPersianTime: jalaali.toJalaali(new Date()),
+    monthDays: [],
+    currentDateInTextBox: "",
   };
 
   onTextBoxClick = () => {
-    const { mainVisible } = this.state;
+    const { mainVisible, currentPersianTime } = this.state;
+    let monthDays = this.fillDayArray(currentPersianTime);
     this.setState({
       mainVisible: !mainVisible,
       currentTime: new Date(),
       currentPersianTime: jalaali.toJalaali(new Date()),
+      monthDays,
     });
+  };
+
+  findFirstDayOfMonth = (currentPersianTime) => {
+    let gregDate = jalaali.toGregorian(
+      currentPersianTime.jy,
+      currentPersianTime.jm,
+      1
+    );
+    return new Date(gregDate.gy, gregDate.gm - 1, gregDate.gd).getDay();
+  };
+
+  findLastDayOfMonth = (currentPersianTime) => {
+    return jalaali.jalaaliMonthLength(
+      currentPersianTime.jy,
+      currentPersianTime.jm
+    );
+  };
+
+  fillDayArray = (currentPersianTime) => {
+    let monthDays = [];
+    for (
+      let day = 0;
+      day <= this.findFirstDayOfMonth(currentPersianTime);
+      day++
+    ) {
+      monthDays[day] = "";
+    }
+
+    for (
+      let day = this.findFirstDayOfMonth(currentPersianTime) + 1, j = 1;
+      j <= this.findLastDayOfMonth(currentPersianTime);
+      day++, j++
+    ) {
+      monthDays[day] = j;
+    }
+
+    for (let day = monthDays.length; day < 42; day++) {
+      monthDays[day] = "";
+    }
+    return monthDays;
   };
 
   handleYearClick = () => {
@@ -44,7 +88,8 @@ class PersianCalendar extends React.Component {
       jm: this.state.currentPersianTime.jm,
       jd: this.state.currentPersianTime.jd,
     };
-    this.setState({ currentTime, currentPersianTime });
+    let monthDays = this.fillDayArray(currentPersianTime);
+    this.setState({ currentTime, currentPersianTime, monthDays });
   };
 
   handleMonthClick = () => {
@@ -69,7 +114,8 @@ class PersianCalendar extends React.Component {
       jm: month,
       jd: this.state.currentPersianTime.jd,
     };
-    this.setState({ currentTime, currentPersianTime });
+    let monthDays = this.fillDayArray(currentPersianTime);
+    this.setState({ currentTime, currentPersianTime, monthDays });
   };
 
   handlePrevClick = () => {
@@ -87,7 +133,8 @@ class PersianCalendar extends React.Component {
         jd: this.state.currentPersianTime.jd,
       };
     }
-    this.setState({ currentPersianTime });
+    let monthDays = this.fillDayArray(currentPersianTime);
+    this.setState({ currentPersianTime, monthDays });
   };
 
   handleNextClick = () => {
@@ -105,22 +152,53 @@ class PersianCalendar extends React.Component {
         jd: this.state.currentPersianTime.jd,
       };
     }
-    this.setState({ currentPersianTime });
+    let monthDays = this.fillDayArray(currentPersianTime);
+    this.setState({ currentPersianTime, monthDays });
+  };
+
+  handleDayClick = (day) => {
+    this.setState({
+      mainVisible: !this.state.mainVisible,
+    });
+    let year = this.state.currentPersianTime.jy;
+    let month = this.state.currentPersianTime.jm;
+    let newDay = day;
+    let currentTime = jalaali.toGregorian(year, month, newDay);
+    currentTime = new Date(currentTime.gy, currentTime.gm - 1, currentTime.gd);
+    const currentPersianTime = {
+      jy: this.state.currentPersianTime.jy,
+      jm: this.state.currentPersianTime.jm,
+      jd: day,
+    };
+    let currentDateInTextBox =
+      this.state.currentPersianTime.jy +
+      "/" +
+      this.state.currentPersianTime.jm +
+      "/" +
+      day;
+    this.setState({ currentTime, currentPersianTime, currentDateInTextBox });
+    this.props.onChange(currentTime.toISOString());
   };
   render() {
     return (
       <Fragment>
         <div style={{ display: "inline-block" }}>
-          <input type="text" onClick={() => this.onTextBoxClick()}></input>
+          <input
+            type="text"
+            onClick={() => this.onTextBoxClick()}
+            defaultValue={this.state.currentDateInTextBox}
+          ></input>
           <MainDiv
             mainVisible={this.state.mainVisible}
             currentTime={this.state.currentTime}
             rtl={this.props.rtl}
             handleMonthClick={this.handleMonthClick}
             handleYearClick={this.handleYearClick}
+            handleDayClick={this.handleDayClick}
             currentPersianTime={this.state.currentPersianTime}
             handlePrevClick={this.handlePrevClick}
             handleNextClick={this.handleNextClick}
+            monthDays={this.state.monthDays}
           />
           <MonthDiv
             monthVisible={this.state.monthVisible}

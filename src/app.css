@@ -24,7 +24,7 @@
     padding: 4px;
     border: none;
     border-radius: 4px;
-    background-color: #ececec;
+    background-color: #d2ebf5;
     margin: 3px;
     width: 70px;
     height: 55px;
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 .monthStyle button:hover{
-    background-color: #cacaca;
+    background-color: #93dffd;
 }
 .rtl {
     direction: rtl;
@@ -55,23 +55,39 @@
     border: none;
     background-color: white;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 5px;
+}
+.topButton:hover {
+    background-color: #d2ebf5;
 }
 
 .weekIcon {
     padding: 4px;
     border: none;
     border-radius: 4px;
-    background-color: #ececec;
+    background-color: #93dffd;
     margin: 3px;
     width: 23px;
     height: 23px;
     display: inline-block;
 }
 
-.topButton:hover {
-    background-color: #ececec;
+.dayIcon {
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d2ebf5;
+    margin: 3px;
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    cursor: pointer;
 }
+
+.dayIcon:hover{
+    background-color: #93dffd;
+}
+
 
 .monthRow button {
     padding: 10px;
@@ -89,9 +105,9 @@
     border: none;
     background-color: white;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .yearRow button:hover {
-    background-color: #ececec;
+    background-color: #d2ebf5;
 }
