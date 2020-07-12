@@ -11,15 +11,49 @@ class PersianCalendar extends React.Component {
     monthVisible: this.props.monthVisible,
     yearVisible: this.props.yearVisible,
     currentPersianTime: jalaali.toJalaali(new Date()),
+    monthDays: []
   };
 
   onTextBoxClick = () => {
-    const { mainVisible } = this.state;
+    const { mainVisible, currentPersianTime } = this.state;
+    let monthDays = this.fillDayArray(currentPersianTime);
     this.setState({
       mainVisible: !mainVisible,
       currentTime: new Date(),
       currentPersianTime: jalaali.toJalaali(new Date()),
+      monthDays
     });
+  };
+
+  findFirstDayOfMonth = (currentPersianTime) => {
+    let gregDate = jalaali.toGregorian(
+      currentPersianTime.jy,
+      currentPersianTime.jm,
+      1
+    );
+    return new Date(gregDate.gy, gregDate.gm - 1, gregDate.gd).getDay();
+  };
+
+  findLastDayOfMonth = (currentPersianTime) => {
+    return jalaali.jalaaliMonthLength(
+      currentPersianTime.jy,
+      currentPersianTime.jm
+    );
+  };
+
+  fillDayArray = (currentPersianTime) => {
+    let monthDays =[];
+    console.log(`currentPersianTime`,currentPersianTime);
+    console.log('this.findFirstDayOfMonth(currentPersianTime)',this.findFirstDayOfMonth(currentPersianTime));
+    console.log(`this.findLastDayOfMonth(currentPersianTime)`,this.findLastDayOfMonth(currentPersianTime));
+    for (
+      let day = this.findFirstDayOfMonth(currentPersianTime) + 1, j = 1;
+      j <= this.findLastDayOfMonth(currentPersianTime);
+      day++, j++
+    ) {
+      monthDays[day] = j;
+    }
+    return monthDays;
   };
 
   handleYearClick = () => {
@@ -44,7 +78,8 @@ class PersianCalendar extends React.Component {
       jm: this.state.currentPersianTime.jm,
       jd: this.state.currentPersianTime.jd,
     };
-    this.setState({ currentTime, currentPersianTime });
+    let monthDays = this.fillDayArray(currentPersianTime);
+    this.setState({ currentTime, currentPersianTime, monthDays });
   };
 
   handleMonthClick = () => {
@@ -69,7 +104,8 @@ class PersianCalendar extends React.Component {
       jm: month,
       jd: this.state.currentPersianTime.jd,
     };
-    this.setState({ currentTime, currentPersianTime });
+    let monthDays = this.fillDayArray(currentPersianTime);
+    this.setState({ currentTime, currentPersianTime, monthDays });
   };
 
   handlePrevClick = () => {
@@ -108,6 +144,7 @@ class PersianCalendar extends React.Component {
     this.setState({ currentPersianTime });
   };
   render() {
+    console.log(this.state.monthDays);
     return (
       <Fragment>
         <div style={{ display: "inline-block" }}>
