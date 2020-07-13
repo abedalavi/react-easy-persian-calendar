@@ -179,10 +179,18 @@ class PersianCalendar extends React.Component {
     this.setState({ currentTime, currentPersianTime, currentDateInTextBox });
     this.props.onChange(currentTime.toISOString());
   };
+
+  generalStyle = {
+    all: "initial",
+    display: "inline-block",
+    textAlign: "center",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif"
+  };
+
   render() {
     return (
       <Fragment>
-        <div style={{ display: "inline-block" }}>
+        <div style={this.generalStyle}>
           <input
             type="text"
             onClick={() => this.onTextBoxClick()}
