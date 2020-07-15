@@ -1,7 +1,6 @@
 .divStyle {
     position: absolute;
     width: 250px;
-    height: 250px;
     background-color: white;
     display: none;
     z-index: 100;
@@ -15,12 +14,13 @@
     grid-template-columns: auto auto auto;
 }
 
-.monthStyle{
+.monthStyle {
     justify-content: space-between;
     align-content: space-between;
     height: 250px;
 }
-.monthStyle button{
+
+.monthStyle button {
     padding: 4px;
     border: none;
     border-radius: 4px;
@@ -31,9 +31,11 @@
     display: inline-block;
     cursor: pointer;
 }
-.monthStyle button:hover{
+
+.monthStyle button:hover {
     background-color: #93dffd;
 }
+
 .rtl {
     direction: rtl;
 }
@@ -42,9 +44,10 @@
     direction: ltr;
 }
 
-.overflowOverlay{
+.overflowOverlay {
     overflow: overlay;
 }
+
 .flexJustifyCenter {
     display: flex;
     justify-content: space-between;
@@ -57,6 +60,7 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
 .topButton:hover {
     background-color: #d2ebf5;
 }
@@ -84,10 +88,14 @@
     cursor: pointer;
 }
 
-.dayIcon:hover{
-    background-color: #93dffd;
+.thin-border {
+    border-style: solid;
+    border-width: thin;
 }
 
+.dayIcon:hover {
+    background-color: #93dffd;
+}
 
 .monthRow button {
     padding: 10px;
@@ -100,6 +108,7 @@
 .monthRow button:hover {
     background-color: #ececec;
 }
+
 .yearRow button {
     padding: 10px;
     border: none;
