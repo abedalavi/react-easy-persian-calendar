@@ -4,6 +4,7 @@ import MonthDiv from "./MonthDiv";
 import jalaali from "jalaali-js";
 import YearDiv from "./YearDiv";
 import "./app.css";
+import { convertEnglishDigitToArabic } from "./helperMethods";
 class PersianCalendar extends React.Component {
   state = {
     mainVisible: this.props.mainVisible,
@@ -20,8 +21,6 @@ class PersianCalendar extends React.Component {
     let monthDays = this.fillDayArray(currentPersianTime);
     this.setState({
       mainVisible: !mainVisible,
-      currentTime: new Date(),
-      currentPersianTime: jalaali.toJalaali(new Date()),
       monthDays,
     });
   };
@@ -89,7 +88,7 @@ class PersianCalendar extends React.Component {
       jd: this.state.currentPersianTime.jd,
     };
     let monthDays = this.fillDayArray(currentPersianTime);
-    this.setState({ currentTime, currentPersianTime, monthDays });
+    this.setState({ currentPersianTime,currentTime , monthDays });
   };
 
   handleMonthClick = () => {
@@ -194,7 +193,8 @@ class PersianCalendar extends React.Component {
           <input
             type="text"
             onClick={() => this.onTextBoxClick()}
-            defaultValue={this.state.currentDateInTextBox}
+            defaultValue={convertEnglishDigitToArabic(this.state.currentDateInTextBox)}
+            
           ></input>
           <MainDiv
             mainVisible={this.state.mainVisible}
