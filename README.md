@@ -49,3 +49,7 @@ new Date(date).toLocaleDateString('fa-IR'); // "۱۳۹۹/۴/۲۶"
 
 ## contribution
 You can fork the repository and contribute to the project, If you find any problem or bug, or if you have any suggestion. I check your pull request as soon as possible.
+
+## Demo
+You can follow the link below to see a demo of component.  
+http://abedalavi.ir/ReactSimplePersianCalendarTest/
