@@ -7,7 +7,6 @@ class MainDiv extends Component {
   render() {
     const { currentTime, rtl, mainVisible, currentPersianTime } = this.props;
     const weekStyle = "flexJustifyCenter " + (rtl === true ? "rtl" : "ltr");
-    console.log(this.props.monthDays);
     return (
       <div
         className="divStyle"

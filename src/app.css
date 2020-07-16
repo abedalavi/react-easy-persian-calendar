@@ -20,7 +20,7 @@
     height: 250px;
 }
 
-.monthStyle button {
+.monthStyle_button {
     padding: 4px;
     border: none;
     border-radius: 4px;
@@ -32,7 +32,7 @@
     cursor: pointer;
 }
 
-.monthStyle button:hover {
+.monthStyle_button:hover {
     background-color: #93dffd;
 }
 
@@ -88,11 +88,6 @@
     cursor: pointer;
 }
 
-.thin-border {
-    border-style: solid;
-    border-width: thin;
-}
-
 .dayIcon:hover {
     background-color: #93dffd;
 }
@@ -109,14 +104,21 @@
     background-color: #ececec;
 }
 
-.yearRow button {
+
+.yearRow_button {
     padding: 10px;
     border: none;
-    background-color: white;
+    background-color: #d2ebf5;
     cursor: pointer;
     border-radius: 5px;
+    margin: 2px;
 }
 
-.yearRow button:hover {
-    background-color: #d2ebf5;
+.yearRow_button:hover {
+    background-color: #93dffd;
+}
+
+.thin-border {
+    border-style: solid;
+    border-width: thin;
 }

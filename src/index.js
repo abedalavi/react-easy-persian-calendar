@@ -21,7 +21,6 @@ class PersianCalendar extends React.Component {
     let monthDays = this.fillDayArray(currentPersianTime);
     this.setState({
       mainVisible: !mainVisible,
-      currentTime: new Date(),
       monthDays,
     });
   };
@@ -89,7 +88,7 @@ class PersianCalendar extends React.Component {
       jd: this.state.currentPersianTime.jd,
     };
     let monthDays = this.fillDayArray(currentPersianTime);
-    this.setState({ currentTime, currentPersianTime, monthDays });
+    this.setState({ currentPersianTime,currentTime , monthDays });
   };
 
   handleMonthClick = () => {

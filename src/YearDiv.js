@@ -6,6 +6,18 @@ import {
 } from "./helperMethods";
 class YearDiv extends Component {
   state = {};
+
+  constructor(props) {
+    super();
+    this.myRef = React.createRef();
+  }
+
+  componentDidUpdate() {
+    if (this.myRef.current !== null) {
+      this.myRef.current.scrollIntoView();
+    }
+  }
+
   render() {
     const { yearVisible, currentPersianTime } = this.props;
     let currentYearJalaali = jalaali.toJalaali(new Date()).jy;
@@ -26,6 +38,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
@@ -43,6 +61,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
@@ -60,6 +84,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
@@ -77,6 +107,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
@@ -94,6 +130,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
@@ -111,6 +153,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
@@ -128,6 +176,12 @@ class YearDiv extends Component {
                   <button
                     onClick={() => this.props.handleYearInYearClick(year)}
                     key={year}
+                    ref={currentPersianTime.jy === year ? this.myRef : null}
+                    className={
+                      currentPersianTime.jy === year
+                        ? `yearRow_button thin-border`
+                        : `yearRow_button`
+                    }
                   >
                     {convertEnglishDigitToArabic(year)}
                   </button>
