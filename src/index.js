@@ -194,6 +194,7 @@ class PersianCalendar extends React.Component {
             type="text"
             onClick={() => this.onTextBoxClick()}
             defaultValue={convertEnglishDigitToArabic(this.state.currentDateInTextBox)}
+            
           ></input>
           <MainDiv
             mainVisible={this.state.mainVisible}

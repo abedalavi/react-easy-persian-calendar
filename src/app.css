@@ -1,3 +1,9 @@
+div, span, button, input {
+    box-sizing: initial;
+    font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif";
+    font-size: inherit;
+}
+
 .divStyle {
     position: absolute;
     width: 250px;
@@ -17,7 +23,6 @@
 .monthStyle {
     justify-content: space-between;
     align-content: space-between;
-    height: 250px;
 }
 
 .monthStyle_button {
