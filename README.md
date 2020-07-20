@@ -25,7 +25,10 @@ function App() {
     console.log(date);
   };
 
-  return <PersianCalendar onChange={onChangePersianDatePicker} />;
+  return <PersianCalendar 
+            onChange={onChange}   
+            currentTime={new Date("1987,01,22")}
+          />;
 }
 
 export default App;
@@ -41,10 +44,11 @@ new Date(date).toLocaleDateString('fa-IR'); // "۱۳۹۹/۴/۲۶"
 
 
 ## Props
-| props        | type           | default value  |
-| ------------- |:-------------:| -----:|
-| rtl      | boolean | true |
-|onChange|function|There is no default value. You must specify a function.
+| props        | type           | default value  | comment
+| :-------------: |:-------------:| :-----:| :------:
+| rtl      | boolean | true | If you have changed the direction of your web application to rtl in advance, you can use this prop to discard the repeated rtl.
+| currentTime      | Date | new Date() | You can specify a current time with this prop. When the component is mounted, this date will be shown on the textbox. Make sure you send a ISO standard date like example above.
+|onChange|function| - |There is no default value. You must specify a function. When you click on a day, this function is executed with a parameter that show the date.
 
 
 ## contribution
