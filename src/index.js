@@ -11,10 +11,20 @@ class PersianCalendar extends React.Component {
     currentTime: this.props.currentTime,
     monthVisible: this.props.monthVisible,
     yearVisible: this.props.yearVisible,
-    currentPersianTime: jalaali.toJalaali(new Date()),
+    currentPersianTime: jalaali.toJalaali(this.props.currentTime),
     monthDays: [],
     currentDateInTextBox: "",
   };
+
+  componentDidMount() {
+    let currentDateInTextBox =
+      this.state.currentPersianTime.jy +
+      "/" +
+      this.state.currentPersianTime.jm +
+      "/" +
+      this.state.currentPersianTime.jd;
+    this.setState({ currentDateInTextBox });
+  }
 
   onTextBoxClick = () => {
     const { mainVisible, currentPersianTime } = this.state;
@@ -88,7 +98,7 @@ class PersianCalendar extends React.Component {
       jd: this.state.currentPersianTime.jd,
     };
     let monthDays = this.fillDayArray(currentPersianTime);
-    this.setState({ currentPersianTime,currentTime , monthDays });
+    this.setState({ currentPersianTime, currentTime, monthDays });
   };
 
   handleMonthClick = () => {
@@ -183,7 +193,8 @@ class PersianCalendar extends React.Component {
     all: "initial",
     display: "inline-block",
     textAlign: "center",
-    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif"
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',    sans-serif",
   };
 
   render() {
@@ -193,7 +204,13 @@ class PersianCalendar extends React.Component {
           <input
             type="text"
             onClick={() => this.onTextBoxClick()}
-            defaultValue={convertEnglishDigitToArabic(this.state.currentDateInTextBox)}
+            value={convertEnglishDigitToArabic(
+              this.state.currentDateInTextBox
+            )}
+            onChange={()=>{}}
+            onKeyUp={() => {
+              return true;
+            }}
             
           ></input>
           <MainDiv
