@@ -22,8 +22,7 @@ class PersianCalendar extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     let currentDateInTextBox, currentTime;
     if (
-      this.props.currentPersianTime === undefined ||
-      prevProps.currentPersianTime === undefined
+      this.props.currentPersianTime === undefined
     ) {
       return;
     }
