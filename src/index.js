@@ -19,6 +19,50 @@ class PersianCalendar extends React.Component {
     currentDateInTextBox: "",
   };
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    let currentDateInTextBox, currentTime;
+    if (
+      this.props.currentPersianTime === undefined ||
+      prevProps.currentPersianTime === undefined
+    ) {
+      return;
+    }
+    if (this.props.currentPersianTime !== prevProps.currentPersianTime) {
+      let { currentPersianTime } = this.props;
+      currentDateInTextBox = currentPersianTime;
+      currentPersianTime = convertPersianDigitToEnglish(currentPersianTime);
+      let year = currentPersianTime.substring(
+        0,
+        currentPersianTime.indexOf("/")
+      );
+      let month = currentPersianTime.substring(
+        currentPersianTime.indexOf("/") + 1,
+        currentPersianTime.indexOf("/", currentPersianTime.indexOf("/") + 1)
+      );
+      let day = currentPersianTime.substring(
+        currentPersianTime.indexOf("/", currentPersianTime.indexOf("/") + 1) + 1
+      );
+      currentTime = jalaali.toGregorian(
+        parseInt(year),
+        parseInt(month),
+        parseInt(day)
+      );
+      currentTime = new Date(
+        currentTime.gy,
+        currentTime.gm - 1,
+        currentTime.gd
+      );
+      let currentPersianTimeState = jalaali.toJalaali(currentTime);
+
+      this.setState({
+        currentTime,
+        currentPersianTime: currentPersianTimeState,
+      });
+      this.setState({ currentDateInTextBox });
+      this.props.onChange(currentTime.toISOString());
+    }
+  }
+
   componentDidMount() {
     let currentDateInTextBox, currentTime;
     if (this.props.currentPersianTime === undefined) {
@@ -49,12 +93,17 @@ class PersianCalendar extends React.Component {
         parseInt(month),
         parseInt(day)
       );
-      currentTime = new Date(currentTime.gy, currentTime.gm - 1, currentTime.gd);
-      console.log(`currentTime`,currentTime);
+      currentTime = new Date(
+        currentTime.gy,
+        currentTime.gm - 1,
+        currentTime.gd
+      );
       let currentPersianTimeState = jalaali.toJalaali(currentTime);
-      console.log(`currentTimeInPersian`,currentPersianTimeState);
 
-      this.setState({currentTime,currentPersianTime:currentPersianTimeState});
+      this.setState({
+        currentTime,
+        currentPersianTime: currentPersianTimeState,
+      });
     }
     this.setState({ currentDateInTextBox });
   }
