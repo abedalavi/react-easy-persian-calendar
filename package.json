@@ -1,6 +1,6 @@
 {
   "name": "react_simple_persian_calendar",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A simple react persian calendar component",
   "main": "build/index.js",
   "scripts": {
