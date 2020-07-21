@@ -45,4 +45,37 @@ const convertEnglishDigitToArabic = (digits) => {
     return id[i];
   });
 };
-export {returnMonthInPersian,convertEnglishDigitToArabic} ;
+const convertPersianDigitToEnglish = (digits) => {
+  var id = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+  return digits.toString().replace(/[۰-۹]/g, (i) => {
+    switch (i) {
+      case `۰`:
+        return 0;
+      case `۱`:
+        return 1;
+      case `۲`:
+        return 2;
+      case `۳`:
+        return 3;
+      case `۴`:
+        return 4;
+      case `۵`:
+        return 5;
+      case `۶`:
+        return 6;
+      case `۷`:
+        return 7;
+      case `۸`:
+        return 8;
+      case `۹`:
+        return 9;
+      default:
+        console.log("default");
+    }
+  });
+};
+export {
+  returnMonthInPersian,
+  convertEnglishDigitToArabic,
+  convertPersianDigitToEnglish,
+};

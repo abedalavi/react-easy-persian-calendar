@@ -4,7 +4,10 @@ import MonthDiv from "./MonthDiv";
 import jalaali from "jalaali-js";
 import YearDiv from "./YearDiv";
 import "./app.css";
-import { convertEnglishDigitToArabic } from "./helperMethods";
+import {
+  convertEnglishDigitToArabic,
+  convertPersianDigitToEnglish,
+} from "./helperMethods";
 class PersianCalendar extends React.Component {
   state = {
     mainVisible: this.props.mainVisible,
@@ -17,12 +20,39 @@ class PersianCalendar extends React.Component {
   };
 
   componentDidMount() {
-    let currentDateInTextBox =
-      this.state.currentPersianTime.jy +
-      "/" +
-      this.state.currentPersianTime.jm +
-      "/" +
-      this.state.currentPersianTime.jd;
+    let currentDateInTextBox, currentTime;
+    if (this.props.currentPersianTime === undefined) {
+      currentDateInTextBox =
+        this.state.currentPersianTime.jy +
+        "/" +
+        this.state.currentPersianTime.jm +
+        "/" +
+        this.state.currentPersianTime.jd;
+    }
+    if (this.props.currentPersianTime !== undefined) {
+      let { currentPersianTime } = this.props;
+      currentDateInTextBox = currentPersianTime;
+      currentPersianTime = convertPersianDigitToEnglish(currentPersianTime);
+      let year = currentPersianTime.substring(
+        0,
+        currentPersianTime.indexOf("/")
+      );
+      let month = currentPersianTime.substring(
+        currentPersianTime.indexOf("/") + 1,
+        currentPersianTime.indexOf("/", currentPersianTime.indexOf("/") + 1)
+      );
+      let day = currentPersianTime.substring(
+        currentPersianTime.indexOf("/", currentPersianTime.indexOf("/") + 1) + 1
+      );
+      currentTime = jalaali.toGregorian(
+        parseInt(year),
+        parseInt(month),
+        parseInt(day)
+      );
+      currentTime = new Date(currentTime.gy, currentTime.gm, currentTime.gd);
+      let currentPersianTimeState = jalaali.toJalaali(currentTime);
+      this.setState({currentTime,currentPersianTime:currentPersianTimeState});
+    }
     this.setState({ currentDateInTextBox });
   }
 
@@ -204,14 +234,11 @@ class PersianCalendar extends React.Component {
           <input
             type="text"
             onClick={() => this.onTextBoxClick()}
-            value={convertEnglishDigitToArabic(
-              this.state.currentDateInTextBox
-            )}
-            onChange={()=>{}}
+            value={convertEnglishDigitToArabic(this.state.currentDateInTextBox)}
+            onChange={() => {}}
             onKeyUp={() => {
               return true;
             }}
-            
           ></input>
           <MainDiv
             mainVisible={this.state.mainVisible}
@@ -249,6 +276,7 @@ class PersianCalendar extends React.Component {
 PersianCalendar.defaultProps = {
   mainVisible: false,
   currentTime: new Date(),
+  currentPersianTime: undefined,
   monthVisible: false,
   yearVisible: false,
   rtl: true,
