@@ -49,8 +49,11 @@ class PersianCalendar extends React.Component {
         parseInt(month),
         parseInt(day)
       );
-      currentTime = new Date(currentTime.gy, currentTime.gm, currentTime.gd);
+      currentTime = new Date(currentTime.gy, currentTime.gm - 1, currentTime.gd);
+      console.log(`currentTime`,currentTime);
       let currentPersianTimeState = jalaali.toJalaali(currentTime);
+      console.log(`currentTimeInPersian`,currentPersianTimeState);
+
       this.setState({currentTime,currentPersianTime:currentPersianTimeState});
     }
     this.setState({ currentDateInTextBox });
