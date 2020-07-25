@@ -195,4 +195,6 @@ class YearDiv extends Component {
   }
 }
 
+YearDiv.displayName = "YearDiv"
+
 export default YearDiv;

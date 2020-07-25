@@ -164,4 +164,6 @@ MainDiv.defaultProps = {
   rtl: true,
 };
 
+MainDiv.displayName = "MainDiv"
+
 export default MainDiv;

@@ -48,8 +48,10 @@ new Date(date).toLocaleDateString('fa-IR'); // "۱۳۹۹/۴/۲۶"
 | :-------------: |:-------------:| :-----:| :------:
 | rtl      | boolean | true | If you have changed the direction of your web application to rtl in advance, you can use this prop to discard the repeated rtl.
 | currentTime      | Date | new Date() | You can specify a current time with this prop. When the component is mounted, this date will be shown on the textbox. Make sure you send a ISO standard date like example above.
+| currentPersianTime  *    | Date | undefined | You can specify a current time in persian date with this prop. When the component is mounted, this date will be shown on the textbox. Make sure you send a format such "۱۳۸۶/۱۲/۱۶".
 |onChange|function| - |There is no default value. You must specify a function. When you click on a day, this function is executed with a parameter that show the date.
 
+\* If you set both the **currentTime** and **currentPersianTime** simultaneously, the **currentPersianTime** override the value and will be consider as current time. See the Demo page for an example.
 
 ## contribution
 You can fork the repository and contribute to the project, If you find any problem or bug, or if you have any suggestion. I check your pull request as soon as possible.

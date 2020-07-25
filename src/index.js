@@ -24,7 +24,7 @@ class PersianCalendar extends React.Component {
     if (
       this.props.currentPersianTime === undefined
     ) {
-      return;
+      return; 
     }
     if (this.props.currentPersianTime !== prevProps.currentPersianTime) {
       let { currentPersianTime } = this.props;
@@ -55,9 +55,8 @@ class PersianCalendar extends React.Component {
 
       this.setState({
         currentTime,
-        currentPersianTime: currentPersianTimeState,
+        currentPersianTime: currentPersianTimeState,currentDateInTextBox
       });
-      this.setState({ currentDateInTextBox });
       this.props.onChange(currentTime.toISOString());
     }
   }
@@ -332,5 +331,7 @@ PersianCalendar.defaultProps = {
   yearVisible: false,
   rtl: true,
 };
+
+PersianCalendar.displayName  = "PersianCalendar";
 
 export default PersianCalendar;
