@@ -118,4 +118,6 @@ class MonthDiv extends Component {
   }
 }
 
+MonthDiv.displayName = "MonthDiv"
+
 export default MonthDiv;

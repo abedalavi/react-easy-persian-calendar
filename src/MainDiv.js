@@ -51,7 +51,8 @@ class MainDiv extends Component {
           {this.props.monthDays.map((value, index) => {
             let dayStyle = "dayIcon";
             if (index < 7) {
-              if(value === currentPersianTime.jd) dayStyle = "dayIcon thin-border";
+              if (value === currentPersianTime.jd)
+                dayStyle = "dayIcon thin-border";
               return (
                 <span
                   key={index}
@@ -68,7 +69,8 @@ class MainDiv extends Component {
           {this.props.monthDays.map((value, index) => {
             let dayStyle = "dayIcon";
             if (index >= 7 && index < 14) {
-              if(value === currentPersianTime.jd) dayStyle = "dayIcon thin-border";
+              if (value === currentPersianTime.jd)
+                dayStyle = "dayIcon thin-border";
               return (
                 <span
                   key={index}
@@ -85,7 +87,8 @@ class MainDiv extends Component {
           {this.props.monthDays.map((value, index) => {
             let dayStyle = "dayIcon";
             if (index >= 14 && index < 21) {
-              if(value === currentPersianTime.jd) dayStyle = "dayIcon thin-border";
+              if (value === currentPersianTime.jd)
+                dayStyle = "dayIcon thin-border";
               return (
                 <span
                   key={index}
@@ -102,7 +105,8 @@ class MainDiv extends Component {
           {this.props.monthDays.map((value, index) => {
             let dayStyle = "dayIcon";
             if (index >= 21 && index < 28) {
-              if(value === currentPersianTime.jd) dayStyle = "dayIcon thin-border";
+              if (value === currentPersianTime.jd)
+                dayStyle = "dayIcon thin-border";
               return (
                 <span
                   key={index}
@@ -119,7 +123,8 @@ class MainDiv extends Component {
           {this.props.monthDays.map((value, index) => {
             let dayStyle = "dayIcon";
             if (index >= 28 && index < 35) {
-              if(value === currentPersianTime.jd) dayStyle = "dayIcon thin-border";
+              if (value === currentPersianTime.jd)
+                dayStyle = "dayIcon thin-border";
               return (
                 <span
                   key={index}
@@ -132,13 +137,13 @@ class MainDiv extends Component {
             }
           })}
         </div>
-        {
-         this.props.monthDays[35] !== '' ?
-         <div className={weekStyle}>
+        {this.props.monthDays[35] !== "" ? (
+          <div className={weekStyle}>
             {this.props.monthDays.map((value, index) => {
               let dayStyle = "dayIcon";
               if (index >= 35 && index < 42) {
-                if(value === currentPersianTime.jd) dayStyle = "dayIcon thin-border";
+                if (value === currentPersianTime.jd)
+                  dayStyle = "dayIcon thin-border";
                 return (
                   <span
                     key={index}
@@ -151,8 +156,14 @@ class MainDiv extends Component {
               }
             })}
           </div>
-          : ''
-        }
+        ) : (
+          ""
+        )}
+        <div>
+          <span className="blankDate" onClick={this.props.blankClick}>
+            پاک کردن تاریخ
+          </span>
+        </div>
       </div>
     );
   }
@@ -163,5 +174,7 @@ MainDiv.defaultProps = {
   currentTime: new Date(),
   rtl: true,
 };
+
+MainDiv.displayName = "MainDiv";
 
 export default MainDiv;
