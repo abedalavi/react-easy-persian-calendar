@@ -14,7 +14,7 @@ class YearDiv extends Component {
 
   componentDidUpdate() {
     if (this.myRef.current !== null) {
-      this.myRef.current.scrollIntoView();
+      this.myRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
     }
   }
 

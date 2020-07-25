@@ -35,6 +35,7 @@ div, span, button, input {
     height: 55px;
     display: inline-block;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .monthStyle_button:hover {
@@ -64,10 +65,12 @@ div, span, button, input {
     background-color: white;
     cursor: pointer;
     border-radius: 5px;
+    transition: 0.5s;
 }
 
 .topButton:hover {
     background-color: #d2ebf5;
+    
 }
 
 .weekIcon {
@@ -91,6 +94,7 @@ div, span, button, input {
     height: 23px;
     display: inline-block;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .dayIcon:hover {
@@ -103,6 +107,7 @@ div, span, button, input {
     background-color: white;
     cursor: pointer;
     border-radius: 50px;
+    transition: 0.5s;
 }
 
 .monthRow button:hover {
@@ -117,6 +122,7 @@ div, span, button, input {
     cursor: pointer;
     border-radius: 5px;
     margin: 2px;
+    transition: 0.5s;
 }
 
 .yearRow_button:hover {
@@ -126,4 +132,21 @@ div, span, button, input {
 .thin-border {
     border-style: solid;
     border-width: thin;
+}
+
+.blankDate{
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fbc2c2;
+    margin: 3px;
+    width: 237px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer; 
+    transition: 0.5s;
+}
+
+.blankDate:hover{
+    background-color: #f38686;
 }

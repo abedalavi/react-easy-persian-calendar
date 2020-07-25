@@ -21,10 +21,8 @@ class PersianCalendar extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     let currentDateInTextBox, currentTime;
-    if (
-      this.props.currentPersianTime === undefined
-    ) {
-      return; 
+    if (this.props.currentPersianTime === undefined) {
+      return;
     }
     if (this.props.currentPersianTime !== prevProps.currentPersianTime) {
       let { currentPersianTime } = this.props;
@@ -55,7 +53,8 @@ class PersianCalendar extends React.Component {
 
       this.setState({
         currentTime,
-        currentPersianTime: currentPersianTimeState,currentDateInTextBox
+        currentPersianTime: currentPersianTimeState,
+        currentDateInTextBox,
       });
       this.props.onChange(currentTime.toISOString());
     }
@@ -105,6 +104,13 @@ class PersianCalendar extends React.Component {
     }
     this.setState({ currentDateInTextBox });
   }
+
+  blankClick = () => {
+    const {mainVisible} = this.state;
+    const currentDateInTextBox = "";
+    this.setState({mainVisible:!mainVisible,currentDateInTextBox });
+    this.props.onChange(undefined);
+  };
 
   onTextBoxClick = () => {
     const { mainVisible, currentPersianTime } = this.state;
@@ -301,6 +307,7 @@ class PersianCalendar extends React.Component {
             handlePrevClick={this.handlePrevClick}
             handleNextClick={this.handleNextClick}
             monthDays={this.state.monthDays}
+            blankClick={this.blankClick}
           />
           <MonthDiv
             monthVisible={this.state.monthVisible}
@@ -332,6 +339,6 @@ PersianCalendar.defaultProps = {
   rtl: true,
 };
 
-PersianCalendar.displayName  = "PersianCalendar";
+PersianCalendar.displayName = "PersianCalendar";
 
 export default PersianCalendar;
