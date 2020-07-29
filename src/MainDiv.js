@@ -5,7 +5,7 @@ import {
 } from "./helperMethods";
 class MainDiv extends Component {
   render() {
-    const { currentTime, rtl, mainVisible, currentPersianTime } = this.props;
+    const { currentTime, rtl, mainVisible, currentPersianTime, onBlur } = this.props;
     const weekStyle = "flexJustifyCenter " + (rtl === true ? "rtl" : "ltr");
     return (
       <div

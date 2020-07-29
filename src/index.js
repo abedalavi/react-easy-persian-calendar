@@ -9,6 +9,21 @@ import {
   convertPersianDigitToEnglish,
 } from "./helperMethods";
 class PersianCalendar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.generalDivRef = React.createRef();
+  }
+
+  componentWillMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  handleClickOutside = (event) => {
+    if(this.generalDivRef && !this.generalDivRef.current.contains(event.target)){
+        this.setState({mainVisible:false,monthVisible:false,yearVisible: false})
+    }
+  };
+
   state = {
     mainVisible: this.props.mainVisible,
     currentTime: this.props.currentTime,
@@ -106,9 +121,9 @@ class PersianCalendar extends React.Component {
   }
 
   blankClick = () => {
-    const {mainVisible} = this.state;
+    const { mainVisible } = this.state;
     const currentDateInTextBox = "";
-    this.setState({mainVisible:!mainVisible,currentDateInTextBox });
+    this.setState({ mainVisible: !mainVisible, currentDateInTextBox });
     this.props.onChange(undefined);
   };
 
@@ -286,7 +301,7 @@ class PersianCalendar extends React.Component {
   render() {
     return (
       <Fragment>
-        <div style={this.generalStyle}>
+        <div style={this.generalStyle} ref={this.generalDivRef}>
           <input
             type="text"
             onClick={() => this.onTextBoxClick()}
@@ -308,6 +323,7 @@ class PersianCalendar extends React.Component {
             handleNextClick={this.handleNextClick}
             monthDays={this.state.monthDays}
             blankClick={this.blankClick}
+            onBlur={this.onBlur}
           />
           <MonthDiv
             monthVisible={this.state.monthVisible}

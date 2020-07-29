@@ -42,6 +42,10 @@ You can convert it to any Locale like the example below:
 new Date(date).toLocaleDateString('fa-IR'); // "۱۳۹۹/۴/۲۶"
 ```
 
+If you click on 'پاک کردن تاریخ' to not have a date as return string, you will get **undefined** and you have to handle it like code below:
+```js
+if (date === undefined) console.log('No date has been chosen!');
+```
 
 ## Props
 | props        | type           | default value  | comment

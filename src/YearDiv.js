@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from "react";
 import jalaali from "jalaali-js";
-import {
-  returnMonthInPersian,
-  convertEnglishDigitToArabic,
-} from "./helperMethods";
+import { convertEnglishDigitToArabic } from "./helperMethods";
 class YearDiv extends Component {
   state = {};
 
@@ -14,7 +11,11 @@ class YearDiv extends Component {
 
   componentDidUpdate() {
     if (this.myRef.current !== null) {
-      this.myRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+      this.myRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
     }
   }
 
@@ -195,6 +196,6 @@ class YearDiv extends Component {
   }
 }
 
-YearDiv.displayName = "YearDiv"
+YearDiv.displayName = "YearDiv";
 
 export default YearDiv;
