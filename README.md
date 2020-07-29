@@ -63,4 +63,4 @@ You can fork the repository and contribute to the project, If you find any probl
 
 ## Demo
 You can follow the link below to see a demo of component.  
-http://abedalavi.ir/ReactSimplePersianCalendarTest/
+http://abedalavi.ir/react-easy-persian-calendar/
