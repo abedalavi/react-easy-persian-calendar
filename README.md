@@ -3,7 +3,8 @@
 Here is a persian datepicker(calendar) React component that you are free to use in your project.  
 This component is compatible with Bootstrap 4.5.0.
 
-
+![alt text](https://github.com/abedalavi/react_simple_persian_calendar/blob/master/public/sampleImage1.png?raw=true)
+            
 
 ## Installation
 The component can be installed via npm:
