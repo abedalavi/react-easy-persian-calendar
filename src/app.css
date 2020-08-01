@@ -116,13 +116,15 @@ div, span, button, input {
 
 
 .yearRow_button {
-    padding: 10px;
+    padding: 7px;
     border: none;
     background-color: #d2ebf5;
     cursor: pointer;
     border-radius: 5px;
     margin: 2px;
     transition: 0.5s;
+    width: 31px;
+    height: 22px;
 }
 
 .yearRow_button:hover {

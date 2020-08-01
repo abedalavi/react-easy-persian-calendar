@@ -76,6 +76,10 @@ class PersianCalendar extends React.Component {
   }
 
   componentDidMount() {
+    if(this.props.startBlank === true){
+      this.blankClick();
+      return;
+    }
     let currentDateInTextBox, currentTime;
     if (this.props.currentPersianTime === undefined) {
       currentDateInTextBox =
@@ -123,7 +127,7 @@ class PersianCalendar extends React.Component {
   blankClick = () => {
     const { mainVisible } = this.state;
     const currentDateInTextBox = "";
-    this.setState({ mainVisible: !mainVisible, currentDateInTextBox });
+    this.setState({ mainVisible: false, currentDateInTextBox });
     this.props.onChange(undefined);
   };
 
