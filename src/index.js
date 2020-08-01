@@ -14,15 +14,16 @@ class PersianCalendar extends React.Component {
     this.generalDivRef = React.createRef();
   }
 
-  componentWillMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
+  // componentWillMount() {
+  //   document.addEventListener("mousedown", this.handleClickOutside);
+  // }
 
-  handleClickOutside = (event) => {
-    if(this.generalDivRef && !this.generalDivRef.current.contains(event.target)){
-        this.setState({mainVisible:false,monthVisible:false,yearVisible: false})
-    }
-  };
+  // handleClickOutside = (event) => {
+  //   console.log(this.generalDivRef);
+  //   if(this.generalDivRef && !this.generalDivRef.current.contains(event.target)){
+  //       this.setState({mainVisible:false,monthVisible:false,yearVisible: false})
+  //   }
+  // };
 
   state = {
     mainVisible: this.props.mainVisible,
