@@ -14,15 +14,16 @@ class PersianCalendar extends React.Component {
     this.generalDivRef = React.createRef();
   }
 
-  componentWillMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
+  // componentWillMount() {
+  //   document.addEventListener("mousedown", this.handleClickOutside);
+  // }
 
-  handleClickOutside = (event) => {
-    if(this.generalDivRef && !this.generalDivRef.current.contains(event.target)){
-        this.setState({mainVisible:false,monthVisible:false,yearVisible: false})
-    }
-  };
+  // handleClickOutside = (event) => {
+  //   console.log(this.generalDivRef);
+  //   if(this.generalDivRef && !this.generalDivRef.current.contains(event.target)){
+  //       this.setState({mainVisible:false,monthVisible:false,yearVisible: false})
+  //   }
+  // };
 
   state = {
     mainVisible: this.props.mainVisible,
@@ -76,6 +77,10 @@ class PersianCalendar extends React.Component {
   }
 
   componentDidMount() {
+    if(this.props.startBlank === true){
+      this.blankClick();
+      return;
+    }
     let currentDateInTextBox, currentTime;
     if (this.props.currentPersianTime === undefined) {
       currentDateInTextBox =
@@ -123,7 +128,7 @@ class PersianCalendar extends React.Component {
   blankClick = () => {
     const { mainVisible } = this.state;
     const currentDateInTextBox = "";
-    this.setState({ mainVisible: !mainVisible, currentDateInTextBox });
+    this.setState({ mainVisible: false, currentDateInTextBox });
     this.props.onChange(undefined);
   };
 

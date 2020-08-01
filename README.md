@@ -55,6 +55,7 @@ if (date === undefined) console.log('No date has been chosen!');
 | currentTime      | Date | new Date() | You can specify a current time with this prop. When the component is mounted, this date will be shown on the textbox. Make sure you send a ISO standard date like example above.
 | currentPersianTime  *    | Date | undefined | You can specify a current time in persian date with this prop. When the component is mounted, this date will be shown on the textbox. Make sure you send a format such "۱۳۸۶/۱۲/۱۶".
 |onChange|function| - |There is no default value. You must specify a function. When you click on a day, this function is executed with a parameter that show the date.
+|startBlank|Boolean| - |If you set this props to true, the component start with a blank textbox.
 
 \* If you set both the **currentTime** and **currentPersianTime** simultaneously, the **currentPersianTime** override the value and will be consider as current time. See the Demo page for an example.
 
