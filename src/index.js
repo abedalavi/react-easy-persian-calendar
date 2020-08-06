@@ -73,7 +73,6 @@ class PersianCalendar extends React.Component {
         });
       }
     } else if (this.props.currentTime !== prevProps.currentTime) {
-      console.log('111111');
       let currentTime = this.props.currentTime;
       let currentPersianTime = jalaali.toJalaali(this.props.currentTime);
       let currentDateInTextBox =
