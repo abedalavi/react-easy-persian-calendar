@@ -22,13 +22,15 @@ import React from "react";
 import PersianCalendar from "react-easy-persian-calendar";
 
 function App() {
+  const [myTime, setMyTime] = React.useState(undefined);
   const onChangePersianDatePicker = (date) => {
+    setMyTime(date);
     console.log(date);
   };
 
   return <PersianCalendar 
-            onChange={onChange}   
-            currentTime={new Date("1987,01,22")}
+            onChange={onChangePersianDatePicker}   
+            currentTime={new Date(myTime)}
           />;
 }
 
