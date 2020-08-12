@@ -328,6 +328,7 @@ class PersianCalendar extends React.Component {
             onKeyUp={() => {
               return true;
             }}
+            className={this.props.textStyle}
           ></input>
           <MainDiv
             mainVisible={this.state.mainVisible}
