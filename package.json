@@ -30,6 +30,8 @@
   "dependencies": {
     "jalaali-js": "^1.1.0",
     "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-onclickoutside": "^6.9.0",
     "webpack": "^4.43.0"
   },
   "peerDependencies": {
