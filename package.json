@@ -1,53 +1,53 @@
 {
-  "name": "react-easy-persian-calendar",
-  "version": "1.4.0",
-  "description": "A simple react persian calendar component",
-  "main": "build/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abedalavi/react-easy-persian-calendar.git"
-  },
-  "keywords": [
-    "persian calendar",
-    "react component",
-    "react persian calendar",
-    "simple persian calendar"
-  ],
-  "author": {
-    "name": "Abed Alavi",
-    "email": "alavi.khorasani@gmail.com"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abedalavi/react-easy-persian-calendar/issues"
-  },
-  "homepage": "https://github.com/abedalavi/react-easy-persian-calendar#readme",
-  "dependencies": {
-    "jalaali-js": "^1.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-onclickoutside": "^6.9.0",
-    "webpack": "^4.43.0"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.5.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^3.6.0",
-    "style-loader": "^1.2.1",
-    "webpack-cli": "^3.3.12"
-  }
+    "name": "react-easy-persian-calendar",
+    "version": "1.5.0",
+    "description": "A simple react persian calendar component",
+    "main": "build/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch",
+        "build": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abedalavi/react-easy-persian-calendar.git"
+    },
+    "keywords": [
+        "react",
+        "persian",
+        "calendar",
+        "date-picker"
+    ],
+    "author": {
+        "name": "Abed Alavi",
+        "email": "alavi.khorasani@gmail.com"
+    },
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/abedalavi/react-easy-persian-calendar/issues"
+    },
+    "homepage": "https://github.com/abedalavi/react-easy-persian-calendar#readme",
+    "dependencies": {
+        "jalaali-js": "^1.1.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-onclickoutside": "^6.9.0",
+        "webpack": "^4.43.0"
+    },
+    "peerDependencies": {
+        "react": "^16.13.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-object-rest-spread": "^6.23.0",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-preset-env": "^1.5.1",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^3.6.0",
+        "style-loader": "^1.2.1",
+        "webpack-cli": "^3.3.12"
+    }
 }
